@@ -68,10 +68,10 @@ def repeat_mode():
             speak(repeat_query)
             repeat_idle_count = 0
     if repeat_idle_count >= max_repeat_idle_count:
-        idle_exit()
+        idle_exit_helper()
 
 
-def idle_exit():
+def idle_exit_helper():
     speak(f"Hey {creator}, Seems like you are way. {assistant} signing off. Bye!")
     print(f"Hey {creator}, Seems like you are way. {assistant} signing off. Bye!")
     exit()
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
     # Loop until the max idle count is reached.
     while idle_count < max_idle_count:
-        # listen to the user's voice.
+        # Listen on microphone.
         user_voice_command = listen().lower()
         if user_voice_command == "none":
             idle_count += 1
@@ -154,4 +154,4 @@ if __name__ == "__main__":
         # Reset idle count;
         idle_count = 0
     if idle_count >= max_idle_count:
-        idle_exit()
+        idle_exit_helper()
