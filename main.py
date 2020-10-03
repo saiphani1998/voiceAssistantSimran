@@ -101,6 +101,9 @@ if __name__ == "__main__":
             die_outcome = random.randrange(1, 6)
             speak("Here's the result: " + str(die_outcome))
 
+        elif 'open notepad' in user_voice_command:
+            os.system("notepad")
+
         elif "search" in user_voice_command:
             webbrowser.get(chromePath).open("https://www.google.com/search?q="
                                             + user_voice_command.replace("search", "").replace(" ", "+"))
